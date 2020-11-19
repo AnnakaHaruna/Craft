@@ -42,7 +42,7 @@ void make_cube_faces(
         {0, 3, 2, 0, 1, 3},
         {0, 3, 1, 0, 2, 3}
     };
-    static const float flipped[6][6] = {
+    static const float flipped[7][6] = {
         {0, 1, 2, 1, 3, 2},
         {0, 2, 1, 2, 3, 1},
         {0, 1, 2, 1, 3, 2},
@@ -56,7 +56,7 @@ void make_cube_faces(
     float b = s - 1 / 2048.0;
     int faces[6] = {left, right, top, bottom, front, back};
     int tiles[6] = {wleft, wright, wtop, wbottom, wfront, wback};
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 7; i++) {
         if (faces[i] == 0) {
             continue;
         }
@@ -206,7 +206,7 @@ void make_cube_wireframe(float *data, float x, float y, float z, float n) {
     };
     float *d = data;
     for (int i = 0; i < 24; i++) {
-        int j = indices[i];
+        int j = *indices[i];
         *(d++) = x + n * positions[j][0];
         *(d++) = y + n * positions[j][1];
         *(d++) = z + n * positions[j][2];
